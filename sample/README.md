@@ -365,7 +365,7 @@ Prediction markets that the source lists with probabilities instead of odds (Pol
 - **Group-stage shoot-outs**: in the 2026 J1 100 Year Vision League group stage a draw after 90 minutes went straight
   to penalties (2 points to the winner, 1 to the loser): 51 shoot-outs, `Extra_Time` = 0.
 - **Neutral_Venue** compares the stadium's country with the home team's country code from the source: 1 = neutral
-  (none in these leagues), 0 = home ground country (16,315), empty = unknown (1,014).
+  (none in these leagues), 0 = home ground country (16,312), empty = unknown (1,017).
   A neutral ground inside the home team's own country (China's 2020 and 2021 hub venues) counts as 0: the rule compares countries, not grounds.
 
 ## Pre-match, in-play and closing
@@ -445,13 +445,64 @@ Each decision below is written in the build code with its evidence; the build st
 
 **Half-time scores.** 1 half-time score was higher than the final score (the source counted a goal it later cancelled): left empty rather than wrong.
 
+**Home / away orientation.** A bookmaker sometimes lists a fixture with the two teams the other way round. Every price series is aligned on the match's home and away teams: 1X2 and Asian handicap, full time and half time, with the handicap line and the live score turned with it (25 match-bookmaker series turned: Bet365 13, Pinnacle 5, Unibet 4, Betsson 3); the other bookmakers' snapshots likewise (205 match-bookmaker sets). 13 matches were listed by the source with home and away reversed: 6 because almost all bookmakers show the other team at home (each checked against the clubs' usual grounds and the home / away balance of the pair in the season), 7 because the home / away balance of the pair in the season was broken and the published round-by-round results of the season show the other team at home. These matches are turned around everywhere (teams, goals, lineups, statistics, events, prices); turning a match leaves its venue as it was (wrong venues are corrected or removed below):
+
+| Source event | League | Date | Home | Away | Found by |
+|---|---|---|---|---|---|
+| 7537788 | ALG | 2023-12-07 | Paradou AC | MC Alger | bookmakers |
+| 5812170 | CHN | 2022-10-29 | Hebei | Guangzhou City | season results |
+| 6034665 | CHN | 2022-12-23 | Cangzhou Mighty Lions | Shanghai Shenhua | bookmakers |
+| 869754 | KSA | 2018-08-30 | Al Hazm | Al Wehda Mecca | season results |
+| 839631 | KSA | 2018-09-13 | Al Ittifaq Dammam | Al Batin | season results |
+| 839632 | KSA | 2018-09-13 | Al Hazm | Al Taawon Buraidah | season results |
+| 6621807 | MAR | 2023-05-21 | JS Soualem | SC Chabab Mohammedia | bookmakers |
+| 92380 | TUN | 2016-11-26 | Etoile Sportive Sahel | ES Zarzis | season results |
+| 1817049 | TUN | 2019-08-28 | CS Hammam Lif | Club Africain | season results |
+| 1817053 | TUN | 2019-08-29 | US Ben Guerdane | JS Kairouanaise | season results |
+| 2102139 | TUN | 2020-01-05 | AS Soliman | Esperance de Tunis | bookmakers |
+| 4186431 | TUN | 2021-11-21 | ES Zarzis | US Monastir | bookmakers |
+| 4950683 | TUN | 2022-05-04 | US Ben Guerdane | Club Africain | bookmakers |
+
+**3 venues were removed.** The source listed these matches the wrong way round and gave the other club's ground as the venue; the real venue is not proven, so Stadium is left empty rather than wrong:
+
+| Source event | League | Date | Home | Away | Venue in the source |
+|---|---|---|---|---|---|
+| 5812170 | CHN | 2022-10-29 | Hebei | Guangzhou City | Yuexiushan Stadium, Guangzhou |
+| 869754 | KSA | 2018-08-30 | Al Hazm | Al Wehda Mecca | King Abdulaziz Sport City Stadium, Mecca |
+| 4186431 | TUN | 2021-11-21 | ES Zarzis | US Monastir | Stade Mustapha Ben Jannet, Monastir |
+
+**21 fixtures are not in the tables** because the source never marked them as finished (16 result decided by the federation; 4 result never confirmed by the source; 1 interrupted). They are listed so that a gap in a season is never silent:
+
+| Source event | League | Date | Home | Away | Score shown | Status |
+|---|---|---|---|---|---|---|
+| 3540720 | ALG | 2021-05-30 | AS Ain M'lila | JS Kabylie | 0-3 | result decided by the federation |
+| 6034659 | CHN | 2022-12-23 | Henan | ShenZhen | 3-0 | result decided by the federation |
+| 6034661 | CHN | 2022-12-23 | Zhejiang | Tianjin Jinmen Tigers | 3-0 | result decided by the federation |
+| 6060440 | CHN | 2022-12-27 | Cangzhou Mighty Lions | Hebei | 3-0 | result decided by the federation |
+| 6060449 | CHN | 2022-12-27 | Beijing Guoan | Shanghai Port | 0-3 | result decided by the federation |
+| 6060450 | CHN | 2022-12-27 | Tianjin Jinmen Tigers | Dalian Pro | 0-3 | result decided by the federation |
+| 6060456 | CHN | 2022-12-27 | Shandong Taishan | Meizhou Hakka | 3-0 | result decided by the federation |
+| 6060584 | CHN | 2022-12-31 | Shandong Taishan | Beijing Guoan | 3-0 | result decided by the federation |
+| 6060766 | CHN | 2022-12-31 | Wuhan Three Towns | Tianjin Jinmen Tigers | 3-0 | result decided by the federation |
+| 3199638 | JPN | 2021-06-20 | Urawa Red Diamonds | Shonan Bellmare | 0-3 | result decided by the federation |
+| 7744990 | JPN | 2024-08-24 | Urawa Red Diamonds | Kawasaki Frontale | 1-1 | interrupted |
+| 11273912 | KOR | 2026-08-23 | Daejeon Hana Citizen | Gangwon FC |  | result never confirmed by the source |
+| 12312253 | KSA | 2026-09-17 | Neom SC | Al Ittifaq Dammam |  | result never confirmed by the source |
+| 470416 | MAR | 2017-10-06 | Racing de Casablanca | Chabab Atlas Khénifra |  | result never confirmed by the source |
+| 2557174 | MAR | 2020-08-22 | Olympique Khouribga | RSB Berkane |  | result decided by the federation |
+| 6187409 | TUN | 2023-02-02 | Stade Tunisien | Etoile Sportive Sahel | 0-2 | result decided by the federation |
+| 6637739 | TUN | 2023-05-14 | ES Metlaoui | Bizertin | 0-2 | result decided by the federation |
+| 8687242 | TUN | 2024-08-31 | US Ben Guerdane | Club Africain | 0-2 | result decided by the federation |
+| 10887654 | TUN | 2025-11-02 | ES Zarzis | Avenir de La Marsa | 0-2 | result decided by the federation |
+| 11415306 | TUN | 2026-02-13 | Stade Tunisien | Olympique de Beja | 0-2 | result decided by the federation |
+| 12332680 | TUN | 2026-08-22 | US Ben Guerdane | CS Hammam Lif |  | result never confirmed by the source |
+
 ## Said plainly - known limitations
 
 - **Lineups** are absent or almost absent from the source for 3 leagues: Algeria, Morocco, Tunisia. The odds, the match sheet, the events and the statistics are there; see `Lineups_Pct` in the Coverage file, season by season.
 - **Lineups are partial** (under half of the matches) for 1 more league: Saudi Arabia (48 %).
 - **Matches without match data**: a few matches carry the source status 'decided by the federation' instead of 'ended' and have no odds, events or statistics in the source; they are not in the files (Algeria 2020/21, China 2022, Japan 2021, Tunisia 2022/23, Tunisia 2024/25 and Tunisia 2025/26: see *Season notes*).
-- **Home and away swapped by the source**: in a home-and-away round robin each pairing is played once at each ground, but the source lists the same home team twice (and never the reverse) for 13 pairings: on one of the two matches it has swapped home and away. The files keep the source's orientation (odds, events and statistics follow it); the stadium shows which one on 6 of them (the listed home team plays at the visitors' usual ground): 7537788 MC Alger - Paradou AC, Algeria 2023/24 (2023-12-07, at Stade Hydra); 6034662 Guangzhou City - Hebei, China 2022 (2022-12-23, at Langfang Stadium); 839631 Al Batin - Al Ittifaq Dammam, Saudi Arabia 2018/19 (2018-09-13, at Prince Mohamed bin Fahd Stadium); 6621807 SC Chabab Mohammedia - JS Soualem, Morocco 2022/23 (2023-05-21, at Had Soualem Municipal Stadium); 1817053 JS Kairouanaise - US Ben Guerdane, Tunisia 2019/20 (2019-08-29, at Stade de Ben Guerdane); 1817049 Club Africain - CS Hammam Lif, Tunisia 2019/20 (2019-08-28, at Stade Bou Kornine); the other pairings: Shanghai Shenhua - Cangzhou Mighty Lions, China 2022 (5757935 and 6034665); Al Taawon Buraidah - Al Hazm, Saudi Arabia 2018/19 (839632 and 839683); Al Wehda Mecca - Al Hazm, Saudi Arabia 2018/19 (869754 and 1400148); ES Zarzis - Etoile Sportive Sahel, Tunisia 2016/17 (212149 and 92380); Esperance de Tunis - AS Soliman, Tunisia 2019/20 (2102139 and 2579380); Club Africain - US Ben Guerdane, Tunisia 2021/22 (4950683 and 5041699); US Monastir - ES Zarzis, Tunisia 2021/22 (4186431 and 4856626).
-- **Venue unknown** for 1,014 matches (5.9 %); `Neutral_Venue` is empty on 1,014 matches.
+- **Venue unknown** for 1,017 matches (5.9 %); `Neutral_Venue` is empty on 1,017 matches.
 - **Round** is filled on 17,088 matches (98.6 %): it stays empty where the source's matchday numbers are not reliable for that season and stage, and in knockout stages.
 - **Kickoff times**: for 4 matches the source's scheduled kickoff is more than 3 hours later than the real start read from Bet365's live clock, for example: Qingdao West Coast - Wuhan Three Towns, played 2025-03-02 (source kickoff 2025-03-03 06:00 UTC); FAR Rabat - JS Soualem, played 2025-04-23 (source kickoff 2025-04-24 05:45 UTC); Bizertin - Olympique de Beja, played 2026-09-05 (source kickoff 2026-09-05 18:42 UTC). `Kickoff_UTC` keeps the source's value; the pre-match markets are cut at the real start.
 - **Kickoff times earlier than the real start**: for 5 matches the source's scheduled kickoff is more than 3 hours before the real start read from Bet365's live clock. `Kickoff_UTC` keeps the source's value and the markets close at it: the few quotes recorded between that time and the real start count as In-play.
