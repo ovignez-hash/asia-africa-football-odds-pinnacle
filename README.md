@@ -20,7 +20,7 @@ exact time each was recorded, and 944,160 dated snapshots from 37 more bookmaker
 | `sample/` | The free 20-match sample: same files, same columns as the full product |
 | `AsiaAfrica_Verify_Before_You_Buy.ipynb` | *Verify before you buy*: the key figures of the listing recomputed on the **full** product, outputs included |
 
-Also on [Hugging Face](https://huggingface.co/datasets/oliviersportsdata/Asia-Africa-Football-Timestamped-Odds-Pinnacle-Match-Stats), with a table viewer, and on [Kaggle](https://www.kaggle.com/datasets/oliviersportsdata/asia-africa-football-odds-with-pinnacle-sample).
+Also on [Hugging Face](https://huggingface.co/datasets/oliviersportsdata/Asia-Africa-Football-Timestamped-Odds-Pinnacle-Match-Stats), with a table viewer, and on [Kaggle](https://www.kaggle.com/datasets/oliviersportsdata/asia-and-africa-football-odds-with-pinnacle-sample).
 
 ---
 
