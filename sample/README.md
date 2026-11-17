@@ -25,7 +25,7 @@ This sample is an exact copy of the full product: same files, same columns, same
 | 13093967 | TUN | 2026/27 | Regular Season | 2026-09-12 | Avenir de La Marsa - Etoile Sportive Sahel | 1-0 |
 | 13046533 | TUN | 2026/27 | Regular Season | 2026-09-16 | ES Zarzis - US Monastir | 1-2 |
 
-Full product (all 17,329 matches): **[→ Get the full dataset on Gumroad](https://sportsdataolivier.gumroad.com/l/gxvqou?utm_source=sample_readme&utm_medium=readme&utm_campaign=asia_africa_premium&utm_content=sample_readme)**
+Full product (all 17,329 matches): **[→ Get the full dataset on Gumroad](https://sportsdataolivier.gumroad.com/l/gxvqou?utm_source=github&utm_medium=sample_readme&utm_campaign=asia_africa_premium&utm_content=readme)**
 
 Questions: contact@oliviersportsdata.com
 
